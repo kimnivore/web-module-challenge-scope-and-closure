@@ -88,15 +88,15 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(inningcb, num){
-  let home = 0;
-  let away = 0;
+  let homeScore = 0;
+  let awayScore = 0;
   for (let i = 0; i < num; i++){
-    home = home + inningcb();
-    away = away + inningcb();
+    homeScore = homeScore + inningcb();
+    awayScore = awayScore + inningcb();
   }
   return{
-    Home: home,
-    Away: away
+    Home: homeScore,
+    Away: awayScore
   }
 }
 
@@ -157,12 +157,25 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScorecb, inningcb, number) {
+  const scoresPerInning = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < number; i++) {
+   const currentScore = getInningScorecb(inningcb);
+   homeScore = homeScore + currentScore.Home;
+   awayScore = awayScore + currentScore.Away;
+   scoresPerInning.push(`Inning ${i + 1}: Away ${currentScore.Away} - Home ${currentScore.Home} `)
+  }
+   if(awayScore === homeScore){
+     return `${scoresPerInning} This game will require extra innings: Away ${awayScore} - Home ${homeScore}`;
+   } else {
+     return `${scoresPerInning} Final Score: Away ${awayScore} - Home ${homeScore}`;
+   }
 }
 
 
-
+console.log('Task 5', scoreboard(getInningScore, inning, 9));
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
