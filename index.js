@@ -6,8 +6,7 @@
  * Use the higher order function processFirstItem below to do the following:
  *  1. Receive an array of strings in a parameter
  *  2. Receive a callback function that takes a string as its argument in a parameter
- *  3. Return the result of invoking the callback function and passing in the FIRST 
- *     element in the array as the argument
+ *  3. Return the result of invoking the callback function and passing in the FIRST element in the array as the argument
  * 
  * The following code is demonstrating a way of completing this task
  * It returns the string `foofoo`
@@ -29,10 +28,18 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
-  2. Which of the two uses a closure? How can you tell?
+  Counter1 has local scoped variable which is declared within a function. It cannot be accessed outside of the function.
+  Counter2 has globally scoped variable. The counter2 function can reach outside (globally) to access this variable.
+
+  2. Which of the two uses a closure? How can you tell? 
+
+  They both use closure because each has an inner function that reaches outward for a variable that's defined there.
   
-  3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+  3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?  
+
+  Counter1 would be appropriate when you want to create multiple/separate instances of running a count.
+
+  Counter2 would be preferable if you were creating a counter just for a single item.
 */
 
 // counter1 code
@@ -42,12 +49,10 @@ function counterMaker() {
    return count++;
   }
 }
-
 const counter1 = counterMaker();
 
 // counter2 code
 let count = 0;
-
 function counter2() {
   return count++;
 }
@@ -62,8 +67,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random() * 3);
 }
 
 
