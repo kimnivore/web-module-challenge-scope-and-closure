@@ -61,6 +61,9 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is when an inner function has access and is able to reach out and grab a value from an outer function. This usually happens when the inner function is unable to find the variable it needs from within it's own private scope.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,9 +85,18 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is used when the return function accesses the name parameter from the personalDice function. You can tell because the inner function requires a value from the outer function in order to complete the action within the inner function.
+
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+Each execution of newRoll is randomly generated and independent of what occurred in previous rolls. What remains the same is the function execution but what is different is the outcome due to the Math.random function.
+
+
 c. What is the lexical scope of `newRoll`? 
 
+Lexical scope is where newRoll belongs or was created. It is locally scoped to the return function.
 
 ### Task 3 - Stretch Goals
 
